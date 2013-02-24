@@ -1,7 +1,7 @@
 module Presdocs
   class Document
     
-    attr_reader :location, :title, :source, :president, :date, :package_id, :lat, :lng, :subjects, :category, :notes, :fdsys_url, :html
+    attr_reader :location, :title, :source, :president, :date, :package_id, :lat, :lng, :subjects, :category, :notes, :fdsys_url, :html, :city, :state
    
     def initialize(params={})
       params.each_pair do |k,v|
