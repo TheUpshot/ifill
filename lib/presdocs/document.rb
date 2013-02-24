@@ -12,7 +12,7 @@ module Presdocs
     def self.detail(package_id)
       url = "http://m.gpo.gov/wscpd/mobilecpd/detailwgc/#{package_id}.json"
       result = Oj.load(open(url).read)
-      create_document(result, full=true)
+      create_document(result, nil, full=true)
     end
     
     def self.latest
@@ -30,12 +30,12 @@ module Presdocs
     def self.create_from_search_results(results, coordinates)
       docs = []
       results.each do |result|
-        docs << create_document(result)
+        docs << create_document(result, coordinates)
       end
       docs
     end
     
-    def self.create_document(result, full=false)
+    def self.create_document(result, coordinates, full=false)
       if full
         detail = result
         result = result['searchResults']
