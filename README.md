@@ -1,6 +1,6 @@
-# Presdocs
+# Presdocs: A Ruby wrapper for the Compilation of Presidential Documents
 
-TODO: Write a gem description
+The White House releases a lot of stuff, and some of it is included in what's known as the [Compilation of Presidential Documents](http://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CPD). This is a Ruby library for accessing details about those documents, including subjects, dates, locations and more.
 
 ## Installation
 
@@ -18,7 +18,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'rubygems'
+    require 'presdocs'
+    include Presdocs
+    
+    @latest_docs = Document.latest
+    
+More documentation coming soon. Check the tests, too.
+
+## Test
+
+Presdocs uses minitest; to run the tests:
+  
+    rake test
 
 ## Contributing
 
