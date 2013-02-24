@@ -24,10 +24,12 @@ module Presdocs
     def self.create_documents(results, coordinates)
       docs = []
       results.each do |result|
-        locations = coordinates.map{|l| {"state" => l['state'], "city" => l['city'], "lat" => l["lat"], "lng" => l["lang"]}}.uniq if coordinates
         city, state = result['location'].split(', ')
-        lat = locations.detect{|l| l['city'] == city && l['state'] == state}['lat']
-        lng = locations.detect{|l| l['city'] == city && l['state'] == state}['lng']
+        if coordinates
+          locations = coordinates.map{|l| {"state" => l['state'], "city" => l['city'], "lat" => l["lat"], "lng" => l["lang"]}}.uniq
+          lat = locations.detect{|l| l['city'] == city && l['state'] == state}['lat']
+          lng = locations.detect{|l| l['city'] == city && l['state'] == state}['lng']
+        end
         docs << self.new(:id => result['packageId'],
                   :city => city,
                   :state => state,
