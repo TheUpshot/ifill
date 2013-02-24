@@ -38,7 +38,7 @@ module Presdocs
     def self.create_document(result, coordinates, full=false)
       if full
         detail = result
-        result = result['searchResults']
+        result = result['searchResult']
       end
       if coordinates
         city, state = result['location'].split(', ')
