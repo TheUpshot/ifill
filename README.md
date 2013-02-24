@@ -28,7 +28,7 @@ More documentation coming soon. Check the tests, too.
 
 ## Test
 
-Presdocs uses minitest; to run the tests:
+Presdocs uses minitest and is tested under Ruby 1.9.3; to run the tests:
   
     rake test
 
