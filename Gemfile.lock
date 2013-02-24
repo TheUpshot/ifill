@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    presdocs (0.0.1)
+      json
+      oj
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (1.7.7)
+    minitest (4.6.1)
+    oj (2.0.7)
+    rake (0.8.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.1.0)
+  minitest
+  presdocs!
+  rake (= 0.8.7)
