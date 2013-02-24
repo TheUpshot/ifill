@@ -21,11 +21,11 @@ module Presdocs
     def self.create_recent_documents(results)
       docs = []
       results.each do |result|
-        docs << self.new(:id => results['packageId'],
-                  :location => results['location'],
-                  :title => results['line1'],
-                  :source => results['line2'],
-                  :president => results['president'],
+        docs << self.new(:id => result['packageId'],
+                  :location => result['location'],
+                  :title => result['line1'],
+                  :source => result['line2'],
+                  :president => result['president'],
                   :date => Date.parse(result['eventDate']))
       end
       docs
