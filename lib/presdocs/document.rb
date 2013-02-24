@@ -58,7 +58,7 @@ module Presdocs
       
       if full
         h = {:category => detail['category'], :notes => detail['notes'], :subjects => detail['subject'], :fdsys_url => detail['fdsysUrl'], :html => detail['fullText']}
-        doc.merge(h)
+        doc.update_attributes(h)
       end
       doc
     end
