@@ -63,7 +63,7 @@ module Presdocs
                 :date => Date.parse(result['eventDate']))
       
       if full
-        h = {:category => detail['category'], :notes => detail['notes'], :subjects => detail['subject'], :fdsys_url => detail['fdsysUrl'], :html => detail['fullText']}
+        h = {:category => detail['category'], :notes => detail['notes'], :subjects => detail['subject'].map{|s| s.strip}.reject!(&:empty?), :fdsys_url => detail['fdsysUrl'], :html => detail['fullText']}
         doc.add_attributes(h)
       end
       doc
