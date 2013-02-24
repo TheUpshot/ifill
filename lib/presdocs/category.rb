@@ -14,7 +14,7 @@ module Presdocs
       results.each do |result|
         cats << self.new(:name => result['name'],
                   :count => result['count'],
-                  :children => result['children']
+                  :children => result['children'])
       end
       cats
     end
