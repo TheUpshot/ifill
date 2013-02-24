@@ -9,6 +9,12 @@ module Presdocs
       end
     end
     
+    def add_attributes(params)
+      params.each_pair do |k,v|
+       instance_variable_set("@#{k}", v)
+      end
+    end
+    
     def self.detail(package_id)
       url = "http://m.gpo.gov/wscpd/mobilecpd/detailwgc/#{package_id}.json"
       result = Oj.load(open(url).read)
@@ -58,7 +64,7 @@ module Presdocs
       
       if full
         h = {:category => detail['category'], :notes => detail['notes'], :subjects => detail['subject'], :fdsys_url => detail['fdsysUrl'], :html => detail['fullText']}
-        doc.update_attributes(h)
+        doc.add_attributes(h)
       end
       doc
     end
