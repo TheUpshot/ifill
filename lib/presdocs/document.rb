@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'oj'
 
 module Presdocs
   class Document
@@ -20,12 +21,12 @@ module Presdocs
     def self.create_recent_documents(results)
       docs = []
       results.each do |result|
-        docs << self.new  :id => results['packageId'],
+        docs << self.new(:id => results['packageId'],
                   :location => results['location'],
                   :title => results['line1'],
                   :source => results['line2'],
                   :president => results['president'],
-                  :date => Date.parse(result['eventDate'])
+                  :date => Date.parse(result['eventDate']))
       end
       docs
     end
