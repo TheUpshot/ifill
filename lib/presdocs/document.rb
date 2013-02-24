@@ -30,12 +30,6 @@ module Presdocs
     def self.create_from_search_results(results, coordinates)
       docs = []
       results.each do |result|
-        city, state = result['location'].split(', ')
-        if coordinates
-          locations = coordinates.map{|l| {"state" => l['state'], "city" => l['city'], "lat" => l["lat"], "lng" => l["lang"]}}.uniq
-          lat = locations.detect{|l| l['city'] == city && l['state'] == state}['lat']
-          lng = locations.detect{|l| l['city'] == city && l['state'] == state}['lng']
-        end
         docs << create_document(result)
       end
       docs
@@ -45,6 +39,12 @@ module Presdocs
       if full
         detail = result
         result = result['searchResults']
+      end
+      city, state = result['location'].split(', ')
+      if coordinates
+        locations = coordinates.map{|l| {"state" => l['state'], "city" => l['city'], "lat" => l["lat"], "lng" => l["lang"]}}.uniq
+        lat = locations.detect{|l| l['city'] == city && l['state'] == state}['lat']
+        lng = locations.detect{|l| l['city'] == city && l['state'] == state}['lng']
       end
       doc = self.new(:id => result['packageId'],
                 :city => city,
