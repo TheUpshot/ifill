@@ -10,7 +10,7 @@ module Presdocs
     end
     
     def self.all
-      url = "http://m.gpo.gov/wscpd/mobilecpd/category"
+      url = "http://m.gpo.gov/wscpd/mobilecpd/category.json"
       results = Oj.load(open(url).read)
       create_categories(results['navigatorResults']['Category'])
     end
