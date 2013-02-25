@@ -37,6 +37,11 @@ class TestDocument < MiniTest::Unit::TestCase
   def test_that_document_date_results_are_from_same_date
     assert_equal Date.strptime('2/14/2013', '%m/%d/%Y'), @date.map{|d| d.date}.uniq.first
   end
-
-
+  
+  def test_date_range_raises_error_for_bad_dates
+    assert_raises RuntimeError do 
+      @range = Document.date_range('2/14/2013', '235')
+    end
+  end
+  
 end

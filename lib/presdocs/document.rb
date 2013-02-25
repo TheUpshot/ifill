@@ -34,14 +34,30 @@ module Presdocs
     end
     
     def self.date(date)
-      if date.is_a?(Date)
-        d = date.strftime("%-m-%-d-%Y")
-      else
-        d = Date.strptime(date, '%m/%d/%Y').strftime("%-m-%-d-%Y")
-      end
+      d = process_date(date)
       url = "http://m.gpo.gov/wscpd/mobilecpd/date/#{d}.json"
       results = Oj.load(open(url).read)
       create_from_search_results(results['searchResults'], nil)
+    end
+    
+    def self.date_range(start_date, end_date)
+      s = process_date(start_date)
+      e = process_date(end_date)
+      url = "http://m.gpo.gov/wscpd/mobilecpd/date/#{s}/#{e}.json"
+      results = Oj.load(open(url).read)
+      create_from_search_results(results['searchResults'], nil)
+    end
+    
+    def self.process_date(date)
+      begin
+        if date.is_a?(Date)
+          d = date.strftime("%-m-%-d-%Y")
+        else
+          d = Date.strptime(date, '%m/%d/%Y').strftime("%-m-%-d-%Y")
+        end
+      rescue
+        raise "Dates must be Ruby Date objects or a Date string such as '2/14/2013'"
+      end
     end
     
     def self.create_from_search_results(results, coordinates)
