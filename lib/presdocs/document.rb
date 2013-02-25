@@ -32,9 +32,15 @@ module Presdocs
       results = Oj.load(open(url).read)
       create_from_search_results(results['searchResults'], results['coordinates'])
     end
-    
-    def self.location(city, state)
+
+    def self.city(city, state)
       url = "http://m.gpo.gov/wscpd/mobilecpd/location/#{city}/#{state}.json"
+      results = Oj.load(open(url).read)
+      create_from_search_results(results['searchResults'], results['coordinates'])
+    end
+    
+    def self.state(state)
+      url = "http://m.gpo.gov/wscpd/mobilecpd/location/#{state}.json"
       results = Oj.load(open(url).read)
       create_from_search_results(results['searchResults'], results['coordinates'])
     end
