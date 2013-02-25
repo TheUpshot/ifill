@@ -33,6 +33,17 @@ module Presdocs
       create_from_search_results(results['searchResults'], results['coordinates'])
     end
     
+    def self.date(date)
+      if date.is_a?(Date)
+        d = date.strftime("%-m-%-d-%Y")
+      else
+        d = Date.strptime(date, '%m/%d/%Y').strftime("%-m-%-d-%Y")
+      end
+      url = "http://m.gpo.gov/wscpd/mobilecpd/date/{d}.json"
+      results = Oj.load(open(url).read)
+      create_from_search_results(results['searchResults'], nil)
+    end
+    
     def self.create_from_search_results(results, coordinates)
       docs = []
       results.each do |result|
