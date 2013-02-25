@@ -10,6 +10,7 @@ class TestDocument < MiniTest::Unit::TestCase
     @categories = Category.all
     @locations = Document.with_locations
     @doc = Document.detail('DCPD-201300104')
+    @date = Document.date('2/14/2013')
   end
 
   def test_that_there_are_five_latest_docs
@@ -32,5 +33,10 @@ class TestDocument < MiniTest::Unit::TestCase
   def test_that_document_detail_has_an_fdsys_url
     assert_equal "http://www.gpo.gov/fdsys/pkg/DCPD-201300104/html/DCPD-201300104.htm", @doc.fdsys_url
   end
+  
+  def test_that_document_date_results_are_from_same_date
+    assert_equal Date.strptime('2/14/2013', '%m/%d/%Y'), @date.map{|d| d.date}.uniq.first
+  end
+
 
 end
