@@ -39,7 +39,7 @@ module Presdocs
       else
         d = Date.strptime(date, '%m/%d/%Y').strftime("%-m-%-d-%Y")
       end
-      url = "http://m.gpo.gov/wscpd/mobilecpd/date/{d}.json"
+      url = "http://m.gpo.gov/wscpd/mobilecpd/date/#{d}.json"
       results = Oj.load(open(url).read)
       create_from_search_results(results['searchResults'], nil)
     end
