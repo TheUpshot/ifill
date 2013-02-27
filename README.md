@@ -26,7 +26,7 @@ Or install it yourself as:
     
     @latest_docs = Document.latest
     
-Please see the documentation for a more complete description of the library.
+Please see [the documentation](http://dwillis.github.com/presdocs/) for a more complete description of the library.
 
 ## Tests
 
