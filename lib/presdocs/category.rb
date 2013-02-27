@@ -14,7 +14,7 @@ module Presdocs
       results = Oj.load(open(url).read)
       create_categories(results['navigatorResults']['Category'])
     end
-    
+        
     def self.create_categories(results)
       cats = []
       results.each do |result|

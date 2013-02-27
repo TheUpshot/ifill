@@ -60,6 +60,12 @@ module Presdocs
       create_from_search_results(results['searchResults'], nil)
     end
     
+    def self.category(category)
+      url = "http://m.gpo.gov/wscpd/mobilecpd/category/#{category}.json"
+      results = Oj.load(open(url).read)
+      create_from_search_results(results['searchResults'], nil)
+    end
+    
     def self.process_date(date)
       begin
         if date.is_a?(Date)
