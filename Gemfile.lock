@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    presdocs (0.0.1)
+    presdocs (0.5)
       json
       oj
 
