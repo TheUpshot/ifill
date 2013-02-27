@@ -45,6 +45,12 @@ module Presdocs
       create_from_search_results(results['searchResults'], results['coordinates'])
     end
     
+    def self.location_with_distance(lat, lng, distance)
+      url = "http://m.gpo.gov/wscpd/mobilecpd/location/#{lat}/#{lng}/#{distance}.json"
+      results = Oj.load(open(url).read)
+      create_from_search_results(results['searchResults'], results['coordinates'])
+    end
+    
     def self.date(date)
       d = process_date(date)
       url = "http://m.gpo.gov/wscpd/mobilecpd/date/#{d}.json"
