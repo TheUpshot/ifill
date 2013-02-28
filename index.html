@@ -149,6 +149,13 @@ include Presdocs
 =&gt; [#&lt;Presdocs::Document:0x007ff83a1ddeb0 @id="DCPD-201200189", @city="Atlanta", @state="GA", @lat="33.74899540", @lng="-84.38798240", @title="Remarks at an Obama Victory Fund 2012 Fundraiser in Atlanta, Georgia", @source="Compilation of Presidential Documents. Addresses and Remarks.  Friday, March 16, 2012.", @president="Obama, Barack H.", @date=#&lt;Date: 2012-03-16 ((2456003j,0s,0n),+0s,2299161j)&gt;&gt;,...]
 </code></pre>
 
+<p>As a bonus, the city and state methods also work when using foreign cities and countries (in place of the state). For example:</p>
+
+<pre><code>@cannes = Document.city('Cannes','France')
+</code></pre>
+
+<p>Works just as well as Atlanta.</p>
+
 <h3>Distance Searches</h3>
 
 <p>Finally, it is possible to search for documents using latitude and longitude coordinates, and a distance in miles. For example, to find documents with locations within 10 miles of Atlanta, you would pass in the coordinates and the distance:</p>
