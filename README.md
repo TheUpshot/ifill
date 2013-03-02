@@ -4,7 +4,7 @@ The White House releases a lot of stuff, and some of it is included in what's kn
 
 Nearly every day, the White House releases one or more official publications, which may include presidential statements, announcements of nominations, press releases and schedule information. These are published by the Government Printing Office. Presdocs wraps JSON endpoints exposed by GPO, which has created a [mobile application](http://m.gpo.gov/dcpd) for browsing and searching these documents. I owe a debt of gratitude to the government employees who made these endpoints available; your commitment to making public information more easily accessible is truly a public service.
 
-The current version is 0.5.
+The current version is 0.6.
 
 ## Installation
 
