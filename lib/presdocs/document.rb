@@ -101,7 +101,7 @@ module Presdocs
         detail = result
         result = result['searchResult']
       end
-      city, state = result['location'].split(', ')
+      city, state = result['location'].split(', ') if result['location']
       if coordinates
         locations = coordinates.map{|l| {"state" => l['state'], "city" => l['city'], "lat" => l["lat"], "lng" => l["lang"]}}.uniq
         lat = locations.detect{|l| l['city'] == city && l['state'] == state}['lat']
