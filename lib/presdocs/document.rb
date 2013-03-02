@@ -1,7 +1,7 @@
 module Presdocs
   class Document
     
-    attr_reader :location, :title, :source, :president, :date, :package_id, :lat, :lng, :subjects, :category, :notes, :fdsys_url, :html, :city, :state
+    attr_reader :id, :location, :title, :source, :president, :date, :package_id, :lat, :lng, :subjects, :category, :notes, :fdsys_url, :html, :city, :state
    
     def initialize(params={})
       params.each_pair do |k,v|
@@ -13,6 +13,10 @@ module Presdocs
       params.each_pair do |k,v|
        instance_variable_set("@#{k}", v)
       end
+    end
+
+    def detail
+      Document.detail(id)
     end
     
     def self.detail(package_id)
