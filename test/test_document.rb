@@ -1,6 +1,6 @@
 require 'rubygems'
-require 'presdocs'
-include Presdocs
+require 'ifill'
+include Ifill
 require 'minitest/autorun'
 
 class TestDocument < MiniTest::Unit::TestCase
