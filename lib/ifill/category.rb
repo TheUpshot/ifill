@@ -1,4 +1,4 @@
-module Presdocs
+module Ifill
   class Category
     
     attr_reader :name, :count, :children

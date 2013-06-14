@@ -1,4 +1,4 @@
-module Presdocs
+module Ifill
   class Document
     
     attr_reader :id, :location, :title, :source, :president, :date, :package_id, :lat, :lng, :subjects, :category, :notes, :fdsys_url, :html, :city, :state
