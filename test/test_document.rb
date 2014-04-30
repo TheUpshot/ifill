@@ -3,7 +3,7 @@ require 'ifill'
 include Ifill
 require 'minitest/autorun'
 
-class TestDocument < MiniTest::Unit::TestCase
+class TestDocument < MiniTest::Test
   
   def setup
     @latest = Document.latest
