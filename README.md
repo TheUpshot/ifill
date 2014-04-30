@@ -6,7 +6,7 @@ Nearly every day, the White House releases one or more official publications, wh
 
 Ifill is named for [Gwen Ifill](http://en.wikipedia.org/wiki/Gwen_Ifill), a former New York Times White House correspondent.
 
-The current version is 0.7.
+The current version is 0.7. It has been tested under Ruby 2.1, 2.0 and 1.9.3.
 
 ## Installation
 
